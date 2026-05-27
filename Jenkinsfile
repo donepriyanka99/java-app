@@ -15,15 +15,11 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                echo 'Testing Application'
-            }
-        }
-
         stage('Deploy') {
             steps {
-                echo 'Deploying Application'
+                sh '''
+                sudo cp -r * /var/www/html/
+                '''
             }
         }
     }
