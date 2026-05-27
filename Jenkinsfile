@@ -3,23 +3,15 @@ pipeline {
 
     stages {
 
-        stage('Clone') {
-            steps {
-                echo 'Cloning Code'
-            }
-        }
-
         stage('Build') {
             steps {
-                echo 'Building Application'
+                sh 'mvn clean package'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh '''
-                sudo cp -r * /var/www/html/
-                '''
+                echo 'Deployment Completed'
             }
         }
     }
